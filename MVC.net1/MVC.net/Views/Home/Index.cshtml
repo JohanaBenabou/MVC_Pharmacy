@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+<html>
+<head>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="~/Content/Design.css" type="text/css">
+    <script type="text/javascript" src="~/Scripts/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav class="nav">
+        <ul>
+            <li>
+                @Ajax.ActionLink("Login","Login","Home" , new AjaxOptions  //premier login: nom ; deuxieme: 
+                                                                          //page d'action et troisieme nom controller
+           {
+               InsertionMode = InsertionMode.Replace,
+               UpdateTargetId = "textmilieu",
+               HttpMethod = "GET",
+           })
+            </li>
+            <li>
+                @Ajax.ActionLink("Register","Register","Home" , new AjaxOptions
+          {
+              InsertionMode = InsertionMode.Replace,
+              UpdateTargetId = "textmilieu",
+              HttpMethod = "GET",
+          })
+            </li>
+        </ul>
+    </nav>
+
+    <div id="textmilieu">
+
+    </div>
+</body>
+</html>
+
+

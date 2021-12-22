@@ -1,0 +1,48 @@
+﻿@model MVC.net.ViewModel.MedUser
+@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/Design.css" type="text/css">
+    <title>Welcome </title>
+</head>
+<style>
+    body {
+        background-image: url(https://www.infomed.co.il/get-image?f=encyclopedia/&w=333&h=222&i=drugspreviewimage.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+</style>
+<body>
+    <nav class="nav">
+        <ul>
+            <li>
+                <h1 style="text-align: center; font-family:Times New Roman">¨Pharma Full Name: @Model.user.name, Pharma ID: @Model.user.ID</h1>
+                @Html.ActionLink("Show Mirsham", "ShowMirsham1", "Pharma")
+                @Html.ActionLink("AddMed", "AddMed", "Pharma")
+                <a href="/Home/Logout">Exit</a>
+            </li>
+        </ul>
+    </nav>
+    <div id="textmilieu" class="AddMirsham" style="float: left; background-color: rgba(153,255,255, 0.6);height: 350px; width: 700px;margin-left: 25%;">
+        <form action="/Pharma/AddMed1" method="post">
+            Med Name: <input type="text" name="Med">
+            Quantity: <input type="text" name="Count" />
+            <input type="submit" value="Create med">
+        </form>
+
+        <form action="/Pharma/UpdateMed" method="post">
+            <select name="MN">
+                @foreach (var n in Model.m)
+                {
+    <option value="@n.name">@n.name</option>}
+
+            </select>
+            Quantity: <input type="text" name="quantity" />
+            <input type="submit" value="Update med">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿@model MVC.net.Models.Users
+@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/Design.css" type="text/css">
+    <title>Welcome </title>
+    <script type="text/javascript" src="~/Scripts/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+</head>
+<style>
+    body {
+        background-image: url(https://www.infomed.co.il/get-image?f=encyclopedia/&w=333&h=222&i=drugspreviewimage.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+</style>
+<body>
+    <nav class="nav">
+        <ul>
+            <li>
+                <h1 style="text-align: center; font-family:Times New Roman">Doctor Full Name: @Model.name, Doctor ID: @Model.ID</h1>
+                @Html.ActionLink("AddMirsham", "AddMirsham2", "Doctor")
+                @Html.ActionLink("ShowMirsham", "ShowMirsham1", "Doctor")
+                <a href="/Home/Logout">Exit</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="textmilieu" class="AddMirsham" style="float: left; background-color: rgba(153,255,255, 0.6);height: 350px; width: 700px;margin-left: 25%; display:table">
+
+        @using (Ajax.BeginForm("ShowMirsham", "Doctor", new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "GET",
+            UpdateTargetId = "textmilieu"
+        }))
+        {
+<input type="text" name="PID" placeholder="Patient ID">
+                <input type="submit" value="Show Mirsham">}
+
+    </div>
+</body>
+</html>

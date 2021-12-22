@@ -1,0 +1,34 @@
+﻿@model MVC.net.Models.Users
+@{ /**/
+
+                Layout = null; ; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/Design.css" type="text/css">
+    <meta name="viewport" content="width=device-width" />
+    <title>Pharma</title>
+</head>
+<style>
+    body {
+        background-image: url(https://www.infomed.co.il/get-image?f=encyclopedia/&w=333&h=222&i=drugspreviewimage.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+</style>
+<body>
+    <nav class="nav">
+        <ul>
+            <li>
+                <h1 style="text-align: center; font-family:Times New Roman">Pharma Full Name: @Model.name, Pharma ID: @Model.ID</h1>
+                @Html.ActionLink("Show Mirsham", "ShowMirsham1", "Pharma")
+                @Html.ActionLink("AddMed", "AddMed", "Pharma")
+                <a href="/Home/Logout">Exit</a>
+            </li>
+        </ul>
+    </nav>
+
+</body>
+</html>

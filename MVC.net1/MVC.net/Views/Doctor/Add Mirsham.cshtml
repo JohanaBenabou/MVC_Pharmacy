@@ -1,0 +1,59 @@
+﻿@model MVC.net.ViewModel.MedUser
+@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/Design.css" type="text/css">
+    <title>Welcome </title>
+    <script type="text/javascript" src="~/Scripts/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+</head>
+<style>
+    body {
+        background-image: url(https://www.infomed.co.il/get-image?f=encyclopedia/&w=333&h=222&i=drugspreviewimage.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+</style>
+<body>
+    <nav class="nav">
+        <ul>
+            <li>
+                <h1 style="text-align: center; font-family:Times New Roman">Doctor Full Name: @Model.user.name, Doctor ID: @Model.user.ID</h1>
+                @Html.ActionLink("AddMirsham", "AddMirsham2", "Doctor")
+                @Html.ActionLink("ShowMirsham", "ShowMirsham1", "Doctor")
+                <a href="/Home/Logout">Exit</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div id="textmilieu" class="AddMirsham" style="float: left; background-color: rgba(153,255,255, 0.6);height: 350px; width: 700px;margin-left: 25%;">
+
+        @using (Ajax.BeginForm("AddMirsham", "Doctor", new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "POST",
+            UpdateTargetId = "textmilieu"
+        }))
+        {
+@Html.TextBox("PID", null, new { placeholder = "Patient Id", @data_val = "true", @data_val_required = "Patient Id is required" })
+
+
+                <select name="MN">
+                    @foreach (var n in Model.m)
+                    {
+    <option value="@n.name">@n.name</option>                }
+
+                </select> <!--<input type="text" name="MN" placeholder="Medical Name"> -->
+                                                <input type="text" name="quantity" placeholder="Quantity">
+                                                                <input type="submit" value="Add Mirsham">}
+
+    </div>
+</body>
+</html>

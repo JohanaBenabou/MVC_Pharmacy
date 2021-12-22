@@ -1,0 +1,41 @@
+﻿@model MVC.net.ViewModel.MirshamUser
+@{
+    Layout = null; ;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script type="text/javascript" src="~/Scripts/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>PharmaPatientList</title>
+</head>
+<body>
+    <div id="DocDetails" class="DocDetails">
+        <h1>Pharma details</h1>
+        <h2>
+            Full Name: @Model.U.name ID: @Model.U.ID <a href="/Home/Logout">Exit</a>
+        </h2>
+    </div>
+    <script  src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <div id="PatientMirsham">
+        @{
+            Html.RenderPartial("PatientMirhsam", Model);
+        }
+
+    </div>
+
+    @Ajax.ActionLink("Actualiser le résultat", "ShowTable", new { id = Model.pid}, 
+    new AjaxOptions {
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "PatientMirsham",
+    HttpMethod ="GET",
+    Confirm="Are you sure?"
+    })
+
+
+    <p>Vue normale : @DateTime.Now.ToLongTimeString()</p>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿@model MVC.net.ViewModel.MirshamUser
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    
+    <title>PatientList</title>
+</head>
+<body>
+    <div id="DocDetails" class="DocDetails">
+        <h1>Doctor details</h1>
+        <h2>
+            Full Name: @Model.U.name ID: @Model.U.ID <a href="/Home/Logout">Exit</a>
+        </h2>
+    </div>
+
+    <table border="1">
+        <tr>
+            <th> Patient ID</th>
+            <th> Doctor ID</th>
+            <th> Medicine</th>
+           
+
+        </tr>
+        @{
+        foreach ( var m in Model.l1 )
+        {
+        String color="white";
+        if(@m.isTake==false){
+        color="red";
+        }
+        <tr style="background-color:@color">
+            <td>@m.Patient</td>
+            <td>@m.Doc</td>
+            <td>@m.name</td>
+           
+        </tr>
+      
+        }
+        }
+    </table>
+</body>
+</html>
+
+

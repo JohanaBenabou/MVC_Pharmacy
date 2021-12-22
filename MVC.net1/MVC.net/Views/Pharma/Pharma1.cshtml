@@ -1,0 +1,17 @@
+﻿@model MVC.net.ViewModel.MirshamUser
+        @*acceder a la liste des mirsham*@
+
+<script type="text/javascript" src="~/Scripts/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+
+
+<div id="PatientMirsham">
+    @{
+        /**/
+
+        Html.RenderPartial("PatientMirhsam", Model);
+        //permet au pharmacien de rendre la page et les modif faites par le medecin
+    }
+
+</div>

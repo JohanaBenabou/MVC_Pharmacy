@@ -1,0 +1,104 @@
+﻿@import url('Design.css');
+
+body {
+    background-image: url(https://lh3.googleusercontent.com/p/AF1QipMFEHw-Y_JlMUj73mLD8HDhbLXlEGKwtbfqTR8=s1600-w1280-h1280);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: gray;
+    background-attachment: fixed;
+    background-position: 0px;
+    margin-top: 10px;
+}
+
+.nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: white;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#textmilieu {
+    margin-top: 10%;
+    text-align: center;
+    font-size: 30px;
+    color: #FFFFFF;
+    font-family: century gothic;
+    -webkit-text-stroke: 0.5px #000000;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav li {
+    float: left;
+}
+
+    nav li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+        nav li a:hover {
+            background-color: #111;
+        }
+
+tr {
+    font-size: 20px;
+    font-family: Times New Roman;
+}
+
+.content {
+    color: white;
+    margin-top: 100px;
+    background-color: black;
+    margin-left: 150px;
+    border-width: 1px;
+    border-style: double;
+    border-color: white;
+    padding: 15Px;
+    padding-bottom: 130px;
+    opacity: 0.7;
+}
+
+.button {
+    background-color: #000000;
+    border-color: white;
+    border-style: double;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+    .button:hover {
+        background-color: #FFF;
+        color: #000;
+    }
+
+#findbook {
+    color: white;
+    margin-top: 200px;
+    background-color: black;
+    margin-left: 100px;
+    border-width: 1px;
+    border-style: double;
+    border-color: red;
+    padding-top: 50Px;
+    padding-bottom: 130px;
+    opacity: 0.7;
+}

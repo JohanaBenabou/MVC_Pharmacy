@@ -1,0 +1,60 @@
+﻿@model MVC.net.ViewModel.MirshamUser
+
+
+<table border="1">
+    <colgroup>
+        <col span="4" width="175">
+    </colgroup>
+    <tr>
+        <th> Patient ID</th>
+        <th> Doctor ID</th>
+        <th> Medicine</th>
+        <th> Give Medicine</th>
+
+    </tr>
+
+    @foreach (var m in Model.l1)
+    {
+        String color = "white";
+        if (@m.isTake == false)
+        {
+            color = "red";
+        }
+
+
+        <tr style="background-color:@color">
+            <td>@m.Patient</td>
+            <td>@m.Doc</td>
+            <td>@m.name</td>
+            <td>
+                @if (@m.isTake == false)
+                {
+                    <!-- <a href="@Url.Action("UpdateMirsham", "Pharma", new { Id = @m.ID  })">Click Here</a>; -->
+
+                    @Ajax.ActionLink("Click Here","UpdateMirsham",  new {  mid = m.ID } ,
+                    new AjaxOptions
+                    {
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "PatientMirsham",
+                    HttpMethod = "GET",
+                    })
+
+
+
+                }
+            </td>
+        </tr>
+
+
+    }
+
+</table>
+<div id="Actualiser" style="float:left">
+    @Ajax.ActionLink("Actualiser le résultat", "ShowTable", new { id = Model.pid},
+new AjaxOptions {
+InsertionMode = InsertionMode.Replace,
+UpdateTargetId = "PatientMirsham",
+HttpMethod ="GET",
+})
+</div>
+

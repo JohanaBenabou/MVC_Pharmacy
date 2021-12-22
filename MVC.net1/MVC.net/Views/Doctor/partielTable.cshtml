@@ -1,0 +1,31 @@
+﻿@model MVC.net.ViewModel.MirshamUser
+
+<table border="1" >
+    <colgroup>
+        <col span="3" width="250">
+    </colgroup>
+    <tr>
+        <th> Patient ID</th>
+        <th> Doctor ID</th>
+        <th> Medicine</th>
+
+    </tr>
+    @{
+        foreach (var m in Model.l1)
+        {
+            String color = "white";
+            if (@m.isTake == false)
+            {
+                //rouge medicament pas donne
+                color = "red";
+            }
+            <tr style="background-color:@color">
+                <td>@m.Patient</td>
+                <td>@m.Doc</td>
+                <td>@m.name</td>
+            </tr>
+
+        }
+    }
+</table>
+
